@@ -1,1 +1,3 @@
 # javaprogram
+*  ReverseNumber
+*  BinaryToDecimal
