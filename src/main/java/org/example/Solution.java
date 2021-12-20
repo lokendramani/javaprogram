@@ -12,19 +12,19 @@ public class Solution {
         int celcius = 0;
         fahrenheitToCelcius(s, e, w);*/
         System.out.println(isInFibo(13));
-        int []arr = new int[9];
-        arrange(arr,9);
-        for (int i:arr
-             ) {
-            System.out.print(i+" ");
+        int[] arr = new int[9];
+        arrange(arr, 9);
+        for (int i : arr
+        ) {
+            System.out.print(i + " ");
         }
         System.out.println();
-        int arr1[]={0,1,1,0,0,1};
+        int arr1[] = {2,8,10,5,-2,5};
 //        swapAlternateElement(arr1);
-        sortZeroAndOnes(arr1);
-        for (int i:arr1)
-        {
-            System.out.print(i+" ");
+//        sortZeroAndOnes(arr1);
+        System.out.println(pairSum(arr1,10));
+        for (int i : arr1) {
+            System.out.print(i + " ");
         }
     }
 
@@ -60,45 +60,45 @@ public class Solution {
             i++;
 
         }
-        return  false;
+        return false;
 
     }
 
     public static int sum(int[] arr) {
         //Your code goes here
-        int sum =0;
+        int sum = 0;
         for (int j : arr) {
             sum += j;
 
         }
         return sum;
     }
-    public  static void arrange(int[] arr,int n){
-        int num=1;
-        int condition = (int) Math.ceil((float)(n)/2);
-        for (int i = 0; i < n ; i++) {
 
-                if(i == condition){
-                    if(n%2 == 1){
-                        num-=3;
-                    }else{
-                        num--;
-                    }
-                }
-                arr[i] = num;
-                if(i < condition){
-                    num+=2;
-                }else{
-                    num-=2;
-                }
+    public static void arrange(int[] arr, int n) {
+        int num = 1;
+        int condition = (int) Math.ceil((float) (n) / 2);
+        for (int i = 0; i < n; i++) {
 
+            if (i == condition) {
+                if (n % 2 == 1) {
+                    num -= 3;
+                } else {
+                    num--;
+                }
+            }
+            arr[i] = num;
+            if (i < condition) {
+                num += 2;
+            } else {
+                num -= 2;
             }
 
+        }
 
 
     }
 
-    private static void swapAlternateElement(int []arr) {
+    private static void swapAlternateElement(int[] arr) {
         int elem = 1;
         int i = 0;
 
@@ -111,23 +111,42 @@ public class Solution {
             elem += 2;
         }
     }
-    private static void sortZeroAndOnes(int []arr){
-            int i = 0;
-            int zeroCount = 0;
-            while( i < arr.length){
-                if(arr[i] == 0)
-                    zeroCount++;
-                i++;
-            }
-            for (int j = 0; j < arr.length; j++) {
-                if(j < zeroCount)
-                    arr[j] = 0;
-                else
-                    arr[j] = 1;
-            }
+
+    private static void sortZeroAndOnes(int[] arr) {
+        int i = 0;
+        int zeroCount = 0;
+        while (i < arr.length) {
+            if (arr[i] == 0)
+                zeroCount++;
+            i++;
         }
+        for (int j = 0; j < arr.length; j++) {
+            if (j < zeroCount)
+                arr[j] = 0;
+            else
+                arr[j] = 1;
+        }
+    }
+
+    //You have been given an integer array/list(ARR) and a number X.
+    // Find and return the total number of pairs in the array/list which sum to X.
+    //1 3 6 2 5 4 3 2 4
+    //n=7 pair should be 7
 
 
+    private static int pairSum(int arr[], int x) {
+        int pairCount = 0;
+        for (int i = 0; i < arr.length; i++) {
+
+            for (int j = i+1; j < arr.length; j++) {
+                 if (arr[i] + arr[j] == x) {
+                    pairCount++;
+                }
+            }
+
+        }
+        return pairCount;
+    }
 
 
 }
