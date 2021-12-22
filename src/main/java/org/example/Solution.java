@@ -19,10 +19,11 @@ public class Solution {
             System.out.print(i + " ");
         }
         System.out.println();
-        int arr1[] = {2,8,10,5,-2,5};
+        int arr1[] = {5,3, 1, 5, 1, 3, 4, 7, 4, 8, 8};
 //        swapAlternateElement(arr1);
 //        sortZeroAndOnes(arr1);
-        System.out.println(pairSum(arr1,10));
+//        System.out.println(pairSum(arr1,10));
+        System.out.println(findUnique(arr1));
         for (int i : arr1) {
             System.out.print(i + " ");
         }
@@ -147,6 +148,54 @@ public class Solution {
         }
         return pairCount;
     }
+
+    //You have been given an integer array/list(ARR) of size N. Where N is equal to [2M + 1].
+    //Now, in the given array/list, 'M' numbers are present twice and one number is present only once.
+    //You need to find and return that number which is unique in the array/list.
+    //2 3 1 6 3 6 2
+    private static int findUnique(int[] arr){
+        //Your code goes here
+        boolean isUnique=true;
+        int digitCount;
+        for(int i=0;i<arr.length;i++){
+            isUnique = true;
+            digitCount = 1;
+            for(int j=0;j<arr.length;j++){
+                if(i == j)
+                    continue;
+                if(arr[i] == arr[j]){
+                    digitCount++;
+                    break;
+                }
+            }
+            if(digitCount == 1){
+                return arr[i];
+            }
+        }
+        return 0;
+    }
+
+    //0, 7, 2, 5, 4, 7, 1, 3, 6
+    private static int findDuplicate(int[] arr){
+       boolean isUnique=true;
+        int digitCount;
+        for(int i=0;i<arr.length;i++){
+            isUnique = true;
+            digitCount = 1;
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[i] == arr[j]){
+                    digitCount++;
+                    break;
+                }
+            }
+            if(digitCount == 2){
+                return arr[i];
+            }
+        }
+        return -1;
+    }
+
+
 
 
 }
