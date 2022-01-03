@@ -19,14 +19,16 @@ public class Solution {
             System.out.print(i + " ");
         }
         System.out.println();
-        int arr1[] = {5,3, 1, 5, 1, 3, 4, 7, 4, 8, 8};
+        int arr1[] = {2,1,2,2};
+        int arr2[] = {2,2,2,2};
 //        swapAlternateElement(arr1);
 //        sortZeroAndOnes(arr1);
 //        System.out.println(pairSum(arr1,10));
-        System.out.println(findUnique(arr1));
-        for (int i : arr1) {
-            System.out.print(i + " ");
-        }
+//        System.out.println(findUnique(arr1));
+        intersections(arr1,arr2);
+//        for (int i : arr1) {
+//            System.out.print(i + " ");
+//        }
     }
 
     private static void fahrenheitToCelcius(int s, int e, int w) {
@@ -195,7 +197,33 @@ public class Solution {
         return -1;
     }
 
+    private static void intersections(int arr1[], int arr2[]) {
 
+        boolean posFound = false;
+
+        for (int i =0;i < arr1.length;i++){
+
+            for(int j=0;j<arr2.length;j++){
+               if(arr1[i] == arr2[j]){
+                    System.out.print(arr1[i] + " ");
+                    arr2[j] = -99999;
+                    break;
+                }
+            }
+        }
+    }
+
+    private static boolean linearSearch(int[] arr3, int i) {
+        boolean isFound = false;
+        for (int j:arr3){
+            if(i == j)
+            {
+                isFound = true;
+                break;
+            }
+        }
+        return isFound;
+    }
 
 
 }
