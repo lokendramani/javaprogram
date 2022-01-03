@@ -19,16 +19,18 @@ public class Solution {
             System.out.print(i + " ");
         }
         System.out.println();
-        int arr1[] = {2,1,2,2};
-        int arr2[] = {2,2,2,2};
+//        int arr1[] = {2,1,2,2};
+//        int arr2[] = {2,2,2,2};
 //        swapAlternateElement(arr1);
 //        sortZeroAndOnes(arr1);
 //        System.out.println(pairSum(arr1,10));
 //        System.out.println(findUnique(arr1));
-        intersections(arr1,arr2);
+//        intersections(arr1,arr2);
 //        for (int i : arr1) {
 //            System.out.print(i + " ");
 //        }
+        int arr1[] = {1,2,3,4,5,6,7};
+        findTriplet(arr1,12);
     }
 
     private static void fahrenheitToCelcius(int s, int e, int w) {
@@ -225,6 +227,25 @@ public class Solution {
         return isFound;
     }
 
+    //You have been given a random integer array/list(ARR) and a number X.
+    // Find and return the number of triplets in the array/list which sum to X.
+    public static int findTriplet(int[] arr, int x) {
+        int tripletCount = 0;
+        int a,b,c;
+        for (int i = 0; i < arr.length; i++) {
+            a = arr[i];
+            for(int j = i+1 ; j < arr.length; j++){
+                b = arr[j];
+                for (int k = j+1; k < arr.length; k++) {
+                    c = arr[k];
+                    if(a+b+c == x){
+                        tripletCount++;
+                    }
+                }
+            }
+        }
 
+        return tripletCount;
+    }
 }
 
