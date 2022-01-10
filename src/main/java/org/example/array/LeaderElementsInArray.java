@@ -1,4 +1,4 @@
-package org.example;
+package org.example.array;
 
 public class LeaderElementsInArray {
     public static void main(String[] args) {
