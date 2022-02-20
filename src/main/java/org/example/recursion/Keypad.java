@@ -13,7 +13,7 @@ public class Keypad {
         if (n == 0 || n == 1) {
             return new String[]{""};
         }
-        // Write your code here
+
         int mod = n % 10;
         int smallInt = n / 10;
 
